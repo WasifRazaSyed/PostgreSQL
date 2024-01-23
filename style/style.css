@@ -1,0 +1,110 @@
+QWidget#LoginPage
+{
+    background-color: #2B4057;
+}
+QDialog#dialog
+{
+    background-color: #2B4057;
+    border: 2px solid white;
+}
+QLabel
+{
+    color: white;
+}
+QLabel#msg
+{
+    font-size:15px;
+}
+QFrame#vLine
+{
+    background-color: #FF6347;
+}
+QPushButton {
+    border: 2px solid #FF6347;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #FF6347;
+    color: white;
+}
+QPushButton:hover {
+    background-color: lightgray;
+    border: 2px solid lightgray;
+}
+QPushButton:pressed
+{
+    background-color: #F0F0F0;
+    border: 2px solid #F0F0F0;
+}
+QPushButton#close, #min
+{
+    background-color:none;
+    border: none;
+    border-radius: none;
+}
+QPushButton#close:hover, #min:hover
+{
+    background-color: lightgray;
+}
+QPushButton#close:pressed, #min:pressed
+{
+    background-color: #F0F0F0;
+}
+QPushButton#prev
+{
+    background-color: none;
+    border:none;
+}
+QPushButton#prev:hover
+{
+    border: 2px solid lightgray;
+    border-radius: 15px;
+}
+QPushButton#prev:pressed
+{
+    image: none;
+    image: url(://logo/icons8-back-42.png);
+}
+QLineEdit#pass,#user
+{
+    padding: 5px;
+    margin-right: 50px;
+    border-radius: 2px;
+}
+QLabel#username, #password
+{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+QLineEdit#user_
+{
+    padding: 5px;
+    border-radius: 2px;
+}
+QCheckBox#remember_box::indicator:checked
+{
+    image: url(:/logo/icons8-checked-checkbox-14.png);
+}
+QCheckBox#remember_box::indicator:unchecked
+{
+    image: url(:/logo/icons8-unchecked-checkbox-14.png);
+    background-color:white;
+}
+QCheckBox#remember_box::indicator
+{
+    background-color:white;
+}
+QCheckBox#remember_box
+{
+    font-size: 15px;
+    color: #C0C0C0;
+}
+QPushButton#Signup_button
+{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+QLabel#valid
+{
+    background-color: #2B4057;
+    margin-right: 18px;
+}

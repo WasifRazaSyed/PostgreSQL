@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>font/MazzardSoftM-Light.ttf</file>
+        <file>font/MazzardSoftM-LightItalic.ttf</file>
+        <file>logo/icons8-postgresql-30.png</file>
+        <file>style/style.css</file>
+        <file>logo/icons8-checked-checkbox-14.png</file>
+        <file>logo/icons8-unchecked-checkbox-14.png</file>
+        <file>font/SourceSans3-Regular.ttf</file>
+        <file>logo/icons8-close-22.png</file>
+        <file>logo/icons8-minimize-22.png</file>
+        <file>logo/icons8-password-30.png</file>
+        <file>logo/icons8-username-30.png</file>
+        <file>logo/icons8-back-32.png</file>
+        <file>logo/icons8-back-42.png</file>
+        <file>logo/icons8-done-26.png</file>
+        <file>logo/icons8-warning-26.png</file>
+        <file>logo/icons8-information-30.png</file>
+    </qresource>
+</RCC>
