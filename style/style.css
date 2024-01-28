@@ -1,7 +1,8 @@
-QWidget#LoginPage
+QWidget#LoginPage, #waiting
 {
     background-color: #2B4057;
 }
+
 QDialog#dialog
 {
     background-color: #2B4057;

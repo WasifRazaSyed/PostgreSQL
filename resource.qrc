@@ -16,5 +16,8 @@
         <file>logo/icons8-done-26.png</file>
         <file>logo/icons8-warning-26.png</file>
         <file>logo/icons8-information-30.png</file>
+        <file>logo/loading-14.gif</file>
+        <file>font/SCR-ITenReg W00 Regular.ttf</file>
+        <file>logo/ZJFD.gif</file>
     </qresource>
 </RCC>
