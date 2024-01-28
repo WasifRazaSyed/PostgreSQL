@@ -13,13 +13,15 @@ SOURCES += \
     landing.cpp \
     login.cpp \
     main.cpp \
-    mover.cpp
+    mover.cpp \
+    waiting_widget.cpp
 
 HEADERS += \
     dialog_box.h \
     landing.h \
     login.h \
-    mover.h
+    mover.h \
+    waiting_widget.h
 
 
 # Default rules for deployment.
@@ -28,14 +30,15 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 
+INCLUDEPATH += "C:/Program Files/libpqxx/include"
 LIBS+="-LC:/Program Files/PostgreSQL/12/lib"
-win32: LIBS += -llibpq
 LIBS+="-LC:/Program Files/libpqxx/lib"
-win32: LIBS += -lpqxx
 
+win32: LIBS += -llibpq
+win32: LIBS += -lpqxx
 win32: LIBS += -lwsock32
 win32: LIBS += -lws2_32
-INCLUDEPATH += "C:/Program Files/libpqxx/include"
+
 
 RESOURCES += \
     resource.qrc
