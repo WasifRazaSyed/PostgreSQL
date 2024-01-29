@@ -18,6 +18,7 @@ private:
     QLabel *icon, *msg;
     QHBoxLayout *h_lay, *h_lay1;
     QVBoxLayout *v_lay;
+    QPushButton *ok;
 };
 
 #endif // DIALOG_BOX_H
