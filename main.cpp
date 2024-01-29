@@ -50,6 +50,16 @@ int main(int argc, char *argv[])
         {
             QDir().mkdir(newDirPath);
         }
+
+        QString newDirName1 = "Logs";
+
+        QDir appDir1(appDirPath);
+        QString newDirPath1 = appDir.filePath(newDirName1);
+
+        if (!QDir(newDirPath1).exists())
+        {
+            QDir().mkdir(newDirPath1);
+        }
         createVBS();
         createBAT();
     }
@@ -104,20 +114,20 @@ void createBAT()
     {
         QTextStream stream(&file0);
         stream<<"@echo off\n";
-        stream<<"set \"password=passwordnew12.\"";
+        stream<<"set \"password=PGadminv12\"";
         stream<<"\n"<<path0<<"\n(\n echo %password%\n echo %password%\n) > %tempFile%";
         stream<<"\n"<<path1<<"initdb.exe\" -D "<<path2<<"\""<<" -U postgres --pwfile=%tempFile% -E UTF8 -A md5";
         stream<<"\ndel %tempFile%";
         stream<<"\n"<<path1<<"pg_ctl.exe\" start -D "<<path2<<"\""<<" -o \"-p 5454\"";
         stream<<"\nset "<<temp0;
         stream<<"\n(\n echo localhost:5454:*:postgres:%password%\n) > %pgPassFile%";
-        stream<<"\n"<<path1<<"createdb.exe\" -U postgres -h localhost -p 5454 -E UTF8 -O postgres -T template0 match";
+        stream<<"\n"<<path1<<"createdb.exe\" -U postgres -h localhost -p 5454 -E UTF8 -O postgres -T template0 credentials";
         stream<<"\nset \"PGPASSWORD=%password%\"";
         stream<<"\n"<<path1<<"pg_ctl.exe\" stop -D "<<path2<<"\""<<" -o \"-p 5454\"";
         stream<<"\n"<<path1<<"pg_ctl.exe\" start -D"<<path2<<"\""<<" -o \"-p 5454\"";
-        stream<<"\necho create table city(name varchar(255)); > \""<<temp1;
-        stream<<"\necho insert into city(name) values('lahore'); >> \""<<temp1;
-        stream<<"\n"<<path1<<"psql.exe\" -h localhost -p 5454 -U postgres -d match -a -f \""<<temp1;
+        stream<<"\necho create table data(username varchar(255), password varchar(255)); > \""<<temp1;
+        stream<<"\necho insert into data(username, password) values('admin', 'postgres'); >> \""<<temp1;
+        stream<<"\n"<<path1<<"psql.exe\" -h localhost -p 5454 -U postgres -d credentials -a -f \""<<temp1;
         stream<<"\n del \""<<temp1;
         stream<<"\n"<<path1<<"pg_ctl.exe\" stop -D "<<path2<<"\""<<" -o \"-p 5454\"";
         stream<<"\n"<<"set \"PGPASSWORD=\"";
