@@ -42,3 +42,5 @@ win32: LIBS += -lws2_32
 
 RESOURCES += \
     resource.qrc
+
+RC_ICONS += "G:\Rason Detre\Projects\PostgreSQL\logo\icons8-genie-lamp-30.ico"
