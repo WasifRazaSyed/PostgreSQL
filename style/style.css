@@ -1,3 +1,7 @@
+QMainWindow#landing
+{
+    background-color: #2B4057;
+}
 QWidget#LoginPage, #waiting
 {
     background-color: #2B4057;

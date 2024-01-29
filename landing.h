@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QObject>
+#include <QPushButton>
+#include <QFontDatabase>
+#include <QFile>
 
 class landing : public QMainWindow
 {
@@ -11,6 +14,9 @@ public:
     explicit landing(QWidget *parent = nullptr);
     ~landing();
 signals:
+private:
+    QFont regular;
+    QPushButton *center;
 };
 
 #endif // LANDING_H
