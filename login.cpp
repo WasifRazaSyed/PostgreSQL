@@ -190,26 +190,50 @@ void login::show_login()
     setLayout(vertical_layout);
 
     connect(logIn, &QPushButton::clicked, this, [=](){
-
-        if(user->text()=="Wasif"&&pass->text()=="111111")
-        {
-            QTimer::singleShot(500, this, [=](){
-                land->show();
-                this->close();
-            });
-
-        }
-        else if(user->text().isEmpty()||pass->text().isEmpty())
+        if(user->text().isEmpty()||pass->text().isEmpty())
             {
             dialog->setter("Username or Password cannot be\nempty.");
             dialog->show();
         }
         else
         {
-            dialog->setter("Incorrect username or password.");
-            dialog->show();
+            try{
+                std::string username=user->text().toStdString();
+                std::string password=pass->text().toStdString();
+                pqxx::connection C("dbname=credentials user=postgres password=PGadminv12 hostaddr=127.0.0.1 port=5454");
+                pqxx::nontransaction N(C);
+                pqxx::result Result=N.exec_params("select username, password from data where username=$1", username);
+                if(!Result.empty())
+                {
+                    for(pqxx::result::const_iterator i=Result.begin(); i!=Result.end(); i++)
+                    {
+                        if(password==i[1].as<std::string>())
+                        {
+                            QTimer::singleShot(500, this, [=](){
+                                land->show();
+                                this->close();
+                            });
+                        }
+                        else
+                        {
+                            dialog->setter("Incorrect username or password.");
+                            dialog->show();
+                        }
+                    }
+                }
+                else
+                {
+                    dialog->setter("Incorrect username or password.");
+                    dialog->show();
+                }
+            }
+            catch (const std::exception& e)
+            {
+                Log(e.what());
+                dialog->setter(QString::fromStdString(e.what()));
+                dialog->show();
+            }
         }
-
     });
 
 }
@@ -217,7 +241,7 @@ void login::show_login()
 void login::show_signup()
 {
     connect(prev, &QPushButton::clicked, this,  [=]()
-            {
+            {  
                 delete_signup_widget();
                 welcomeTitleBar();
             });
@@ -278,35 +302,76 @@ void login::show_signup()
 
     setLayout(vertical_layout);
 
-    connect(user, &QLineEdit::textChanged, this, [=](){
-
-        if(user->text()=="Wasif")
-            {
-            QPixmap pic2;
-            pic2.load(":/logo/icons8-done-26.png");
-            valid->setPixmap(pic2.scaled(26,26));
-            valid->setToolTip(nullptr);
-            flag=true;
-        }
-        else if(user->text()=="")
-            {
+    connect(user, &QLineEdit::textChanged, this, [=]()
+    {
+        if(user->text()=="")
+        {
             flag=false;
             valid->clear();
         }
         else
+        {
+            try{
+                std::string username=user->text().toStdString();
+                pqxx::connection C("dbname=credentials user=postgres password=PGadminv12 hostaddr=127.0.0.1 port=5454");
+                pqxx::nontransaction N(C);
+                pqxx::result Result=N.exec_params("select username from data where username=$1", username);
+                if(!Result.empty())
+                {
+                    for(pqxx::result::const_iterator i=Result.begin(); i!=Result.end(); i++)
+                    {
+                        if(username==i[0].as<std::string>())
+                        {
+                            flag=false;
+                            QPixmap pic2;
+                            pic2.load(":/logo/icons8-warning-26.png");
+                            valid->setPixmap(pic2.scaled(26,26));
+                            valid->setToolTip("Username already exists!");
+                        }
+                        else
+                        {
+                            QPixmap pic2;
+                            pic2.load(":/logo/icons8-done-26.png");
+                            valid->setPixmap(pic2.scaled(26,26));
+                            valid->setToolTip(nullptr);
+                            flag=true;
+                        }
+                    }
+                }
+                else
+                {
+                    QPixmap pic2;
+                    pic2.load(":/logo/icons8-done-26.png");
+                    valid->setPixmap(pic2.scaled(26,26));
+                    valid->setToolTip(nullptr);
+                    flag=true;
+                }
+            }
+            catch (const std::exception& e)
             {
-            flag=false;
-            QPixmap pic2;
-            pic2.load(":/logo/icons8-warning-26.png");
-            valid->setPixmap(pic2.scaled(26,26));
-            valid->setToolTip("Username already exists!");
+                Log(e.what());
+            }
         }
+
     });
     connect(signUp, &QPushButton::clicked, this, [=](){
 
         if(flag && pass->text().length()>=6)
         {
-            dialog->setter("Signed up successfully. Go back to\nLog in.");
+            try{
+                std::string username=user->text().toStdString();
+                std::string password=pass->text().toStdString();
+                pqxx::connection C("dbname=credentials user=postgres password=PGadminv12 hostaddr=127.0.0.1 port=5454");
+                pqxx::work W(C);
+                pqxx::result Result=W.exec_params("insert into data(username, password) values($1, $2)", username, password);
+                W.commit();
+                dialog->setter("Signed up successfully. Go back to\nLog in.");
+            }
+            catch (const std::exception& e)
+            {
+                Log(e.what());
+                dialog->setter(QString::fromStdString(e.what()));
+            }
             user->clear();
             pass->clear();
         }
@@ -329,6 +394,19 @@ void login::show_signup()
         }
         dialog->show();
     });
+}
+
+void login::Log(std::string error)
+{
+    QString path=QCoreApplication::applicationDirPath()+"/Logs/log.txt";
+    QFile file(path);
+
+    // Open the file in append mode
+    if (file.open(QFile::WriteOnly | QFile::Append))
+    {
+        QTextStream out(&file);
+        out<<QString::fromStdString(error)<<QDateTime::currentDateTime().toString(Qt::TextDate)<<"\n\n";
+    }
 }
 
 void login::welcome_signals()
@@ -358,7 +436,7 @@ void login::title_signals()
     connect(min, &QPushButton::clicked, this, [=]()
             {
                 this->showMinimized();
-            });
+    });
 }
 
 void login::delete_welcome_widget()

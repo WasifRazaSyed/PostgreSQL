@@ -20,6 +20,8 @@
 #include <QFile>
 #include "dialog_box.h"
 #include "mover.h"
+#include <pqxx/pqxx>
+#include <QDateTime>
 
 class login : public QWidget
 {
@@ -53,6 +55,7 @@ public slots:
     void in_WelcomeTitleBar();
     void welcome_signals();
     void title_signals();
+    void Log(std::string);
 };
 
 #endif // LOGIN_H
