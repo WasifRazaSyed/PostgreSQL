@@ -11,6 +11,7 @@ waiting_widget::waiting_widget(QWidget *parent)
     QString family = QFontDatabase::applicationFontFamilies(id0).at(0);
     QFont reg(family);
     reg.setPointSize(13);
+    reg.setItalic(true);
 
     QFile file("://style/style.css");
     file.open(QFile::ReadOnly);
@@ -18,7 +19,6 @@ waiting_widget::waiting_widget(QWidget *parent)
     setStyleSheet(styleSheet);
 
     QLabel *movie=new QLabel(this);
-    //movie->setFixedSize();
     movie->setAlignment(Qt::AlignCenter);
     QMovie *wait_logo=new QMovie("://logo/ZJFD.gif");
     movie->setMovie(wait_logo);
@@ -38,7 +38,7 @@ waiting_widget::waiting_widget(QWidget *parent)
     time->setInterval(1000);
 
     connect(time, &QTimer::timeout, [=](){
-        QString path=QCoreApplication::applicationDirPath()+"/signal.txt";
+        QString path=QCoreApplication::applicationDirPath()+"/temp/signal.txt";
         QFile file(path);
         if(file.exists())
             {
