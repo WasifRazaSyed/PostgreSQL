@@ -2,6 +2,8 @@
 #define LOGIN_H
 
 #include <QObject>
+#include <QCoreApplication>
+#include <QDir>
 #include <QWidget>
 #include "landing.h"
 #include <QLabel>

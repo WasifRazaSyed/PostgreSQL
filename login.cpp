@@ -2,7 +2,7 @@
 
 login::login(landing *parent)
     :land(parent)
-{
+{    
     setObjectName("LoginPage");
     setFixedSize(450,275);
     setWindowTitle("PostgreSQL Login Page");
@@ -279,6 +279,7 @@ void login::show_signup()
     setLayout(vertical_layout);
 
     connect(user, &QLineEdit::textChanged, this, [=](){
+
         if(user->text()=="Wasif")
             {
             QPixmap pic2;
@@ -350,6 +351,7 @@ void login::title_signals()
 {
     connect(Close, &QPushButton::clicked, this, [=]()
             {
+                std::system("cscript //NoLogo laun.VBS stop");
                 this->close();
             });
 
