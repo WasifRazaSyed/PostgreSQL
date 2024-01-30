@@ -7,10 +7,10 @@
 ## Technologies Used
 
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/C%2B%2B-20-blue?style=for-the-badge&labelColor=black&logo=c%2B%2B&logoColor=blue"></a>
-  <a href="#"><img src="https://img.shields.io/badge/PostgreSQL-12.5-blue?style=for-the-badge&labelColor=black&logo=postgresql&logoColor=blue"></a>
-  <a href="#"><img src="https://img.shields.io/badge/libpqxx-7.8.1-blue?style=for-the-badge&labelColor=black&logo=c%2B%2B&logoColor=blue"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Qt-6.5.3-blue?style=for-the-badge&labelColor=black&logo=qt&logoColor=blue"></a>
+  <a href="#"><img src="https://img.shields.io/badge/C%2B%2B-20-blue?style=for-the-badge&labelColor=yellow&logo=c%2B%2B&logoColor=blue"></a>
+  <a href="#"><img src="https://img.shields.io/badge/PostgreSQL-12.5-blue?style=for-the-badge&labelColor=green&logo=postgresql&logoColor=blue"></a>
+  <a href="#"><img src="https://img.shields.io/badge/libpqxx-7.8.1-blue?style=for-the-badge&labelColor=orange&logo=c%2B%2B&logoColor=blue"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Qt-6.5.3-blue?style=for-the-badge&labelColor=pink&logo=qt&logoColor=blue"></a>
 </p>
 
 ## Overview
@@ -48,4 +48,4 @@ Feedback is always appreciated. If you find any issues or have suggestions for i
 
 ## License
 
-This project is licensed under the [GNU LGPLv2.1 License](LICENSE).
+This project is licensed under the [GNU LGPL v2.1 License](LICENSE).
