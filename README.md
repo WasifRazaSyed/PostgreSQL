@@ -1,9 +1,16 @@
-Written in Qt framework for C++ language, this desktop application uses PostgreSQL as database and libpqxx as PostgreSQL API for C++.
-
 # Login Panel Application
 
 <p align="center">
   <img src="https://example.com/path/to/your-application-screenshot.png" alt="Login Panel Screenshot">
+</p>
+
+## Technologies Used
+
+<p align="left">
+  <a href="#"><img src="https://img.shields.io/badge/C%2B%2B-20-blue?style=for-the-badge&labelColor=black&logo=c%2B%2B&logoColor=blue"></a>
+  <a href="#"><img src="https://img.shields.io/badge/PostgreSQL-12.5-blue?style=for-the-badge&labelColor=black&logo=postgresql&logoColor=blue"></a>
+  <a href="#"><img src="https://img.shields.io/badge/libpqxx-Library-blue?style=for-the-badge&labelColor=black&logo=c%2B%2B&logoColor=blue"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Qt-Framework-blue?style=for-the-badge&labelColor=black&logo=qt&logoColor=blue"></a>
 </p>
 
 ## Overview
@@ -15,39 +22,30 @@ This C++ application, built with the Qt framework and utilizing PostgreSQL as th
 - **User Authentication:** Secure user authentication system for login.
 - **Sign-Up Functionality:** Users can create a new account with unique credentials.
 - **Qt Framework:** Developed using the Qt framework for a cross-platform user interface.
-- **PostgreSQL Database:** Utilizes PostgreSQL via the libpqxx library for efficient data storage.
+- **PostgreSQL Database:** Utilizes PostgreSQL (version 12.5) via the libpqxx library for efficient data storage.
 
-##installation
-Setup file is included in /setup folder of this repository.
+## Installation
+
+1. **Download Installer:**
+
+    Find the installer in the `/setup` folder of the repository.
+
+2. **Install Application:**
+
+    Run the installer and follow the on-screen instructions to install the application. No additional setup is required.
+
+## Screenshots
+
+Include some screenshots of your application to give users a preview.
 
 ## Feedback
 
-Feedback is always appreciated. If you find any issues or have suggestions for improvement, please [open an issue](https://github.com/yourusername/your-login-panel/issues).
+Feedback is always appreciated. If you find any issues or have suggestions for improvement, please [open an issue](https://github.com/WasifRazaSyed/PostgreSQL/issues).
 
 ## Author
 
-[Your Name]
+[Wasif Raza]
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-<details>
-<summary style="color: #4CAF50; background-color: #E8F5E9;">Prerequisites</summary>
-
-- C++ Compiler with support for C++20 features.
-- Qt Framework.
-- PostgreSQL (version 12.5).
-- libpqxx library.
-
-</details>
-
-<details>
-<summary style="color: #1565C0; background-color: #E3F2FD;">Versions</summary>
-
-- C++ Version: 20
-- Qt Framework: [Version X.X](https://link-to-qt-version-info)
-- PostgreSQL: [Version 12.5](https://link-to-postgresql-version-info)
-- libpqxx Library: [Version X.X](https://link-to-libpqxx-version-info)
-
-</details>
