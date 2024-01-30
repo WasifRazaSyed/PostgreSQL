@@ -44,3 +44,8 @@ Wasif Raza
 ## License
 
 This project is licensed under the [GNU LGPL v2.1 License](LICENSE).
+
+## Connect with Me
+
+Follow me on:
+- **LinkedIn:** [Syed Raza](https://www.linkedin.com/in/syed-raza-2b62051a1/)
