@@ -1,16 +1,16 @@
 # Login Panel Application
 
 <p align="center">
-  <img src="https://example.com/path/to/your-application-screenshot.png" alt="Login Panel Screenshot">
+  <img src="https://github.com/WasifRazaSyed/PostgreSQL/blob/main/setup/pg_client.PNG" alt="Login Panel Screenshot">
 </p>
 
 ## Technologies Used
 
-<p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/C%2B%2B-20-blue?style=for-the-badge&labelColor=yellow&logo=c%2B%2B&logoColor=yellow"></a>
-  <a href="#"><img src="https://img.shields.io/badge/PostgreSQL-12.5-blue?style=for-the-badge&labelColor=blue&logo=postgresql&logoColor=blue"></a>
-  <a href="#"><img src="https://img.shields.io/badge/libpqxx-7.8.1-blue?style=for-the-badge&labelColor=orange&logo=c%2B%2B&logoColor=orange"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Qt-6.5.3-blue?style=for-the-badge&labelColor=black&logo=qt&logoColor=black"></a>
+<p align="left">
+  <a href="#"><img src="https://img.shields.io/badge/C%2B%2B-20-F58220?style=for-the-badge&labelColor=black&logo=c%2B%2B&logoColor=F58220"></a>
+  <a href="#"><img src="https://img.shields.io/badge/PostgreSQL-12.5-336791?style=for-the-badge&labelColor=black&logo=postgresql&logoColor=336791"></a>
+  <a href="#"><img src="https://img.shields.io/badge/libpqxx-Library-00FFFF?style=for-the-badge&labelColor=black&logo=c%2B%2B&logoColor=00FFFF"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Qt-Framework-000000?style=for-the-badge&labelColor=black&logo=qt&logoColor=000000"></a>
 </p>
 
 ## Overview
@@ -28,7 +28,7 @@ This C++ application, built with the Qt framework and utilizing PostgreSQL as th
 
 1. **Download Installer:**
 
-    Find the installer in the `/setup` folder of the repository.
+    Find the installer in the `setup` folder of the repository.
 
 2. **Install Application:**
 
@@ -41,7 +41,7 @@ Feedback is always appreciated. If you find any issues or have suggestions for i
 
 ## Author
 
-[Wasif Raza]
+Wasif Raza
 
 ## License
 
