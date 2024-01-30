@@ -302,58 +302,66 @@ void login::show_signup()
 
     setLayout(vertical_layout);
 
-    connect(user, &QLineEdit::textChanged, this, [=]()
+    try
     {
-        if(user->text()=="")
-        {
-            flag=false;
-            valid->clear();
-        }
-        else
-        {
-            try{
-                std::string username=user->text().toStdString();
-                pqxx::connection C("dbname=credentials user=postgres password=PGadminv12 hostaddr=127.0.0.1 port=5454");
-                pqxx::nontransaction N(C);
-                pqxx::result Result=N.exec_params("select username from data where username=$1", username);
-                if(!Result.empty())
+        connect(user, &QLineEdit::textChanged, this, [=]()
                 {
-                    for(pqxx::result::const_iterator i=Result.begin(); i!=Result.end(); i++)
+                    if(user->text()=="")
                     {
-                        if(username==i[0].as<std::string>())
-                        {
-                            flag=false;
-                            QPixmap pic2;
-                            pic2.load(":/logo/icons8-warning-26.png");
-                            valid->setPixmap(pic2.scaled(26,26));
-                            valid->setToolTip("Username already exists!");
+                        flag=false;
+                        valid->clear();
+                    }
+                    else
+                    {
+                        try{
+                            std::string username=user->text().toStdString();
+                            pqxx::connection C("dbname=credentials user=postgres password=PGadminv12 hostaddr=127.0.0.1 port=5454");
+                            pqxx::nontransaction N(C);
+                            pqxx::result Result=N.exec_params("select username from data where username=$1", username);
+                            if(!Result.empty())
+                            {
+                                for(pqxx::result::const_iterator i=Result.begin(); i!=Result.end(); i++)
+                                {
+                                    if(username==i[0].as<std::string>())
+                                    {
+                                        flag=false;
+                                        QPixmap pic2;
+                                        pic2.load(":/logo/icons8-warning-26.png");
+                                        valid->setPixmap(pic2.scaled(26,26));
+                                        valid->setToolTip("Username already exists!");
+                                    }
+                                    else
+                                    {
+                                        QPixmap pic2;
+                                        pic2.load(":/logo/icons8-done-26.png");
+                                        valid->setPixmap(pic2.scaled(26,26));
+                                        valid->setToolTip(nullptr);
+                                        flag=true;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                QPixmap pic2;
+                                pic2.load(":/logo/icons8-done-26.png");
+                                valid->setPixmap(pic2.scaled(26,26));
+                                valid->setToolTip(nullptr);
+                                flag=true;
+                            }
                         }
-                        else
+                        catch (const std::exception& e)
                         {
-                            QPixmap pic2;
-                            pic2.load(":/logo/icons8-done-26.png");
-                            valid->setPixmap(pic2.scaled(26,26));
-                            valid->setToolTip(nullptr);
-                            flag=true;
+                            Log(e.what());
                         }
                     }
-                }
-                else
-                {
-                    QPixmap pic2;
-                    pic2.load(":/logo/icons8-done-26.png");
-                    valid->setPixmap(pic2.scaled(26,26));
-                    valid->setToolTip(nullptr);
-                    flag=true;
-                }
-            }
-            catch (const std::exception& e)
-            {
-                Log(e.what());
-            }
-        }
 
-    });
+                });
+    }
+    catch(std::exception &e)
+    {
+        Log(e.what());
+    }
+
     connect(signUp, &QPushButton::clicked, this, [=](){
 
         if(flag && pass->text().length()>=6)
