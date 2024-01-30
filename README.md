@@ -1,8 +1,8 @@
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/C%2B%2B-20-F58220?style=for-the-badge&labelColor=F58220&logo=c%2B%2B&logoColor=F58220"></a>
-  <a href="#"><img src="https://img.shields.io/badge/PostgreSQL-12.5-336791?style=for-the-badge&labelColor=blue&logo=postgresql&logoColor=blue"></a>
-  <a href="#"><img src="https://img.shields.io/badge/libpqxx-7.8.1-00FFFF?style=for-the-badge&labelColor=black&logo=c%2B%2B&logoColor=black"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Qt-6.5.3-000000?style=for-the-badge&labelColor=green&logo=qt&logoColor=green"></a>
+  <a href="#"><img src="https://img.shields.io/badge/C%2B%2B-20-F58220?style=for-the-badge&labelColor=black&logo=c%2B%2B&logoColor=F58220"></a>
+  <a href="#"><img src="https://img.shields.io/badge/PostgreSQL-12.5-336791?style=for-the-badge&labelColor=black&logo=postgresql&logoColor=336791"></a>
+  <a href="#"><img src="https://img.shields.io/badge/libpqxx-Library-00FFFF?style=for-the-badge&labelColor=black&logo=c%2B%2B&logoColor=00FFFF"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Qt-Framework-000000?style=for-the-badge&labelColor=black&logo=qt&logoColor=000000"></a>
 </p>
 
 # Login Panel Application
