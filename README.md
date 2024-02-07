@@ -8,7 +8,7 @@
 # Login Panel Application
 
 <p align="center">
-  <img src="https://github.com/WasifRazaSyed/PostgreSQL/blob/main/setup/pg_client.PNG" alt="Login Panel Screenshot">
+  <img src="https://github.com/WasifRazaSyed/PostgreSQL/blob/main/setup/pg_client.png" alt="Login Panel Screenshot">
 </p>
 
 ## Overview
