@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QFontDatabase>
 #include <QFile>
+#include <Windows.h>
 
 class landing : public QMainWindow
 {
@@ -17,6 +18,9 @@ signals:
 private:
     QFont regular;
     QPushButton *center;
+public:
+
+    void initScript(LPCWSTR arg);
 };
 
 #endif // LANDING_H

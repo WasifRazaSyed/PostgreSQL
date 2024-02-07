@@ -437,7 +437,8 @@ void login::title_signals()
 {
     connect(Close, &QPushButton::clicked, this, [=]()
             {
-                std::system("wscript //NoLogo laun.VBS stop");
+                //std::system("wscript //NoLogo laun.VBS stop");
+                land->initScript(L"stop");
                 this->close();
             });
 

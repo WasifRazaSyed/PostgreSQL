@@ -26,7 +26,8 @@ landing::landing(QWidget *parent)
     setCentralWidget(center);
     connect(center, &QPushButton::clicked, this, [=]()
             {
-        std::system("wscript //NoLogo laun.VBS stop");
+        //std::system("wscript //NoLogo laun.VBS stop");
+        initScript(L"stop");
         this->close();
     });
 }
@@ -34,4 +35,21 @@ landing::landing(QWidget *parent)
 landing::~landing()
 {
 
+}
+
+void landing::initScript(LPCWSTR arg)
+{
+    LPCWSTR scriptPath = L"laun.vbs";
+
+    // Structure to hold information about the application being executed
+    SHELLEXECUTEINFOW info = { sizeof(info) };
+    info.fMask = SEE_MASK_NOCLOSEPROCESS;  // Ensure the process handle is set
+    info.lpVerb = L"open";                  // Open the file
+    info.lpFile = scriptPath;               // Path to the script
+    info.lpParameters = arg;         // Arguments for the script
+    info.nShow = SW_HIDE;                   // Hide the window
+    info.hwnd = NULL;                       // No parent window
+
+    // Execute the script
+    ShellExecuteExW(&info);
 }

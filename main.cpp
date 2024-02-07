@@ -5,10 +5,11 @@
 #include <QTextStream>
 #include <QTimer>
 #include "waiting_widget.h"
+#include <Windows.h>
 
 void createVBS();
 void createBAT();
-
+void initScript(LPCWSTR arg);
 
 int main(int argc, char *argv[])
 {
@@ -19,7 +20,8 @@ int main(int argc, char *argv[])
     waiting_widget w;
     QObject::connect(&w, &waiting_widget::showUp, [&]()
                      {
-                        std::system("wscript //NoLogo laun.VBS start");
+                        //std::system("wscript //NoLogo laun.VBS start");
+                        initScript(L"start");
                         log.show();
                         w.close();
                         QString path0=QCoreApplication::applicationDirPath()+"/temp/init.bat";
@@ -65,7 +67,8 @@ int main(int argc, char *argv[])
     }
     else
     {
-        std::system("wscript //NoLogo laun.VBS start");
+        //std::system("wscript //NoLogo laun.VBS start");
+        initScript(L"start");
         log.show();
     }
 
@@ -136,7 +139,8 @@ void createBAT()
 
         file0.close();
 
-        std::system("wscript //NoLogo laun.VBS init");
+        //std::system("wscript //NoLogo laun.VBS init");
+        initScript(L"init");
     }
 
     QFile file1("pg_at.bat");
@@ -164,4 +168,22 @@ void createBAT()
             file2.close();
         }
     }
+}
+
+void initScript(LPCWSTR arg)
+{
+    LPCWSTR scriptPath = L"laun.vbs";
+
+    // Structure to hold information about the application being executed
+    SHELLEXECUTEINFOW info = { sizeof(info) };
+    info.fMask = SEE_MASK_NOCLOSEPROCESS;  // Ensure the process handle is set
+    info.lpVerb = L"open";                  // Open the file
+    info.lpFile = scriptPath;               // Path to the script
+    info.lpParameters = arg;         // Arguments for the script
+    info.nShow = SW_HIDE;                   // Hide the window
+    info.hwnd = NULL;                       // No parent window
+
+    // Execute the script
+    ShellExecuteExW(&info);
+
 }
