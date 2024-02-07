@@ -26,7 +26,7 @@ landing::landing(QWidget *parent)
     setCentralWidget(center);
     connect(center, &QPushButton::clicked, this, [=]()
             {
-        std::system("cscript //NoLogo laun.VBS stop");
+        std::system("wscript //NoLogo laun.VBS stop");
         this->close();
     });
 }

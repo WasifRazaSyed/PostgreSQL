@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     waiting_widget w;
     QObject::connect(&w, &waiting_widget::showUp, [&]()
                      {
-                        std::system("cscript //NoLogo laun.VBS start");
+                        std::system("wscript //NoLogo laun.VBS start");
                         log.show();
                         w.close();
                         QString path0=QCoreApplication::applicationDirPath()+"/temp/init.bat";
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
     }
     else
     {
-        std::system("cscript //NoLogo laun.VBS start");
+        std::system("wscript //NoLogo laun.VBS start");
         log.show();
     }
 
@@ -136,7 +136,7 @@ void createBAT()
 
         file0.close();
 
-        std::system("cscript //NoLogo laun.VBS init");
+        std::system("wscript //NoLogo laun.VBS init");
     }
 
     QFile file1("pg_at.bat");
